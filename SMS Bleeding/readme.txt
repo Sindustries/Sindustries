@@ -22,3 +22,7 @@ Run the init on a unit's init field in the editor:
 [_this] execVM SMS\SMS_init.sqf;
 
 //////
+
+CONFIGURATION
+
+You can change most of the config by editing the numbers in cfgSMS.sqf
