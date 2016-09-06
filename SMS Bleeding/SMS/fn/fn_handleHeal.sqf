@@ -8,7 +8,7 @@
 			
 			if (_unit != player) exitWith {};
 
-			waitUntil {(damage _unit) < _damage || (_unit getVariable "SMS_bleedingRate") isEqualTo 0};
+			waitUntil {(damage _unit) < _damage};
 			_unit setDamage 0;
 			SMS_bleedingParts = [];
 			if ((_unit getVariable "SMS_bleedingRate") isEqualTo 0) exitWith {};

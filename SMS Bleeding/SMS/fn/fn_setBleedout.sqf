@@ -11,6 +11,7 @@
 	
 	if ((_unit getVariable "SMS_isUnconscious") isEqualTo true) exitWith {};
 	_unit setVariable ["SMS_isUnconscious", true];
+	_unit setVariable ["SMS_inBleedout", true];
 	
 	_unit setUnconscious true;
 	
@@ -20,6 +21,7 @@
 	};
 	if ((_unit getVariable "SMS_bloodLevel") > (SMS_maxBlood * SMS_bleedOutNum)) exitWith {
 		_unit setVariable ["SMS_isUnconscious", false];
+		_unit setVariable ["SMS_inBleedout", false];
 		_unit setUnconscious false;
 		if (primaryWeapon _unit isEqualTo "" && secondaryWeapon _unit isEqualTo "" && handgunWeapon _unit isEqualTo "") exitWith {
 			_unit addWeapon "hgun_P07_F";

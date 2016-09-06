@@ -18,15 +18,18 @@ SMS_fn_handleDamage = compile preProcessFileLineNumbers "SMS\fn\fn_handleDamage.
 SMS_fn_handleHeal = compile preProcessFileLineNumbers "SMS\fn\fn_handleHeal.sqf";
 SMS_fn_healAction = compile preProcessFileLineNumbers "SMS\fn\fn_healAction.sqf";
 
+if (getText (configFile >> "cfgVehicles" >> typeOf player >> "role") isEqualTo "CombatLifeSaver") then {
+	_unit setVariable ["SMS_isMedic", true];
+} else {
+	_unit setVariable ["SMS_isMedic", false];
+};
+
+//-----------------------------------
 
 _unit setVariable ["SMS_bloodLevel", SMS_maxBlood];
 _unit setVariable ["SMS_bleedingRate", 0];
 _unit setVariable ["SMS_isUnconscious", false];
-
-SMS_selections = ["head","body","hands","legs"];
-SMS_bleedingParts = [];
-
-//-----------------------------------
+_unit setVariable ["SMS_inBleedout", false];
 
 [_unit] call SMS_fn_handleDamage;
 [_unit] call SMS_fn_handleHeal;

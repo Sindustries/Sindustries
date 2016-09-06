@@ -6,29 +6,26 @@
 */
 //-----------------------------------
 
-	private ["_unit","_bodyPart","_amount","_smallSplash","_largeSplash","_math"];
+	private ["_unit","_amount","_smallSplash","_largeSplash","_math"];
 
 	_unit = _this select 0;
-	_bodyPart = _this select 1;
-	_amount = _this select 2;
+	_amount = _this select 1;
 	
 	if (_unit != player) exitWith {};
 	_unit setVariable ["SMS_bleedingRate", ((_unit getVariable "SMS_bleedingRate") + _amount)];
-	if (_bodypart in SMS_bleedingParts) exitWith {};
-	SMS_bleedingParts pushbackUnique _bodyPart;
 	
-	("HUDBLOODLayer" call BIS_fnc_rscLayer) cutRsc ["SMSHUDBloodcount","PLAIN",-1,false];
+	("HUDBLOODLayer" call BIS_fnc_rscLayer) cutRsc ["HVPHUD_blood","PLAIN",-1,false];
 	
 	while {alive _unit && (_unit getVariable "SMS_bleedingRate") > 0} do {
 			
-		_unit setVariable ["SMS_bloodLevel", ((_unit getVariable "SMS_bloodLevel")-((_unit getHit "head")+(_unit getHit "body")+(_unit getHit "hands")+(_unit getHit "legs"))*SMS_bloodLossCOEF)];
+		_unit setVariable ["SMS_bloodLevel", (_unit getVariable "SMS_bloodLevel")-(_unit getVariable "SMS_bleedingRate")];
 		
-		if ((_unit getHit _bodypart) > 0 && (_unit getHit _bodypart) < 0.6 && (random 100) < 33) then {		
+		if ((damage _unit) > 0 && (damage _unit) < 0.6 && (random 100) < 33) then {		
 			_smallSplash = createSimpleObject ["a3\characters_f\data\slop_00.p3d", getPosWorld _unit]; 
 			_smallSplash setDir random 360; 
 			_smallSplash setVectorUp surfaceNormal getPosWorld _smallSplash;
 		};
-		if ((_unit getHit _bodypart) >= 0.6 && (random 100) < 33) then {		
+		if ((damage _unit) >= 0.6 && (random 100) < 33) then {		
 			_largeSplash = createSimpleObject ["a3\characters_f\blood_splash.p3d", getPosWorld _unit]; 
 			_largeSplash setDir random 360;
 		};
