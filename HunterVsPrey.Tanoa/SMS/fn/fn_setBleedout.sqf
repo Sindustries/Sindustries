@@ -14,7 +14,7 @@
 	_unit setVariable ["SMS_inBleedout", true, true];
 	
 	_unit setUnconscious true;
-	cutText ["", "BLACK OUT", 0.1, true];
+	cutText ["YOU ARE BLEEDING OUT", "WHITE OUT", 0.1, true];
 	
 	waitUntil {(_unit getVariable "SMS_bloodLevel") <= 0 || (_unit getVariable "SMS_bloodLevel") > (SMS_maxBlood * SMS_bleedOutNum) || !alive _unit};
 	if ((_unit getVariable "SMS_bloodLevel") <= 0) exitWith {

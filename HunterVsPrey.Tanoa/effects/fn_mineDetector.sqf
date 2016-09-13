@@ -7,8 +7,8 @@ private ["_scanSize","_scanTime","_mines","_cfg","_cfgName","_mineScan","_mine"]
 //-----------------------------------
 //-CONFIG
 
-_scanSize = 30;		//How big an area around the player to scan for mines
-_scanTime = 3;		//How often (in sec) to scan
+_scanSize = 30;
+_scanTime = 3;
 
 //-----------------------------------
 //-OPEN LOOP

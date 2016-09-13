@@ -8,8 +8,6 @@
 			_source = _this select 3;
 			_projectile = _this select 4;
 			
-			_unit setDamage ((damage _unit)+_damage);
-			
 			if (_damage >= 0.15) then {
 				[_unit,(_damage * SMS_bloodLossCOEF)] spawn SMS_fn_setBleeding;
 			};
