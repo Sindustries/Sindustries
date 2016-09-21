@@ -15,12 +15,12 @@ _scanTime = 3;		//How often (in sec) to scan
 while {alive player} do {
 //-----------------------------------
 	
-	waitUntil {sleep 3; "MineDetector" in (items player)};
+	waitUntil {sleep 3; "MineDetector" in (items player)};	//Wait for player to have a mine detector
 	
 	while {"MineDetector" in (items player)} do {
 		
 		_mineScan = [nearestObject [player,"MineBase"],nearestObject [player,"TimeBombCore"]];
-		_mine = [_mineScan,[],{_x distance player},"ASCEND",{!isNull _x}] call BIS_fnc_sortBy select 0;
+		_mine = [_mineScan,[],{_x distance player},"ASCEND",{!isNull _x}] call BIS_fnc_sortBy select 0;	//Get nearby mines and sort them by distance
 		if (!(isNil "_mine")) then {
 			if (player distance _mine <= _scanSize && player distance _mine > (_scanSize * 0.66)) then {
 				playSound "beep_target";
