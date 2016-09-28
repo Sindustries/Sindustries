@@ -7,8 +7,6 @@
 
 if (lifeState player isEqualTo "INCAPACITATED" || lifeState player isEqualTo "INJURED" || lifeState player isEqualTo "HEALTHY") exitWith {};
 
-"dynamicBlur" ppEffectEnable false;
-
 ("HUDAbilLayer" call BIS_fnc_rscLayer) cutText ["","PLAIN"];
 ("HUDBLOODLayer" call BIS_fnc_rscLayer) cutText ["","PLAIN"];
 
@@ -74,5 +72,6 @@ if (HVPGameType isEqualTo 3) then {
 	["Initialize", [player, [WEST, EAST], false, true, true, true, true, true, false, false]] call BIS_fnc_EGSpectator;
 };
 
+"dynamicBlur" ppEffectEnable false;
 
 //-----------------------------------
