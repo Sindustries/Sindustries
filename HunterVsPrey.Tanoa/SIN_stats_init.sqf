@@ -81,7 +81,7 @@ if (isNil {STAT_timesLostPRED}) then {
 //-FNCS
 
 STAT_addStat = {
-	private ["_stat","_player","_UID","_newPlayer","_timesPlayed","_index"];
+	private ["_statName","_stat","_player","_UID","_newPlayer","_index"];
 	_statName = _this select 0;
 	_stat = profileNamespace getVariable _statName;
 	_player = _this select 1;
@@ -90,17 +90,16 @@ STAT_addStat = {
 	
 	for "_index" from 0 to (count _stat) do {
 		if (((_stat select _index) select 0) isEqualTo _UID) then {
-			_timesPlayed = ((_stat select _index) select 1);
-			_timesPlayed = _timesPlayed + 1;
+			_timesPlayed = (((_stat select _index) select 1) + 1);
 			_stat deleteAt _index;
 			_stat pushBackUnique [_UID,_timesPlayed];
 			profileNamespace setVariable [_statName, _stat];
 			_newPlayer = false;
 		};
-		if (_newPlayer) then {
-			_stat pushBack [_UID,1];
-			profileNamespace setVariable [_statName, _stat];
-		};
+	};
+	if (_newPlayer) then {
+		_stat pushBack [_UID,1];
+		profileNamespace setVariable [_statName, _stat];
 	};
 	saveProfileNamespace;
 };

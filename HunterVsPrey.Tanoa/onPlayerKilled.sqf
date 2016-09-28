@@ -20,6 +20,17 @@ if (HVPGameType isEqualTo 1) then {
 	player removeWeapon _weapon;
 };
 
+//-----------------------------------
+//-SPAWN ZOMBEES
+
+if (HVPZombieMode isEqualTo 1) then {
+	[(getPos player)] remoteExec ["z_fnc_setSpawn", 2];
+	[(getPos player)] remoteExec ["z_fnc_setSpawn", 2];
+	[(getPos player)] remoteExec ["z_fnc_setSpawn", 2];
+};
+
+//-----------------------------------
+
 [
 	[
 		["YOU HAVE BEEN KILLED","<t align = 'center' shadow = '1' size = '1.0' font='PuristaBold'>%1</t><br/>", 25]
@@ -59,7 +70,7 @@ if (HVPGameType isEqualTo 1) then {
 if (HVPGameType isEqualTo 2) then {
 	["Initialize", [player, [WEST, EAST, RESISTANCE], false, true, true, true, true, true, false, false]] call BIS_fnc_EGSpectator;
 };
-if (HVPGameType isEqualTo 2) then {
+if (HVPGameType isEqualTo 3) then {
 	["Initialize", [player, [WEST, EAST], false, true, true, true, true, true, false, false]] call BIS_fnc_EGSpectator;
 };
 

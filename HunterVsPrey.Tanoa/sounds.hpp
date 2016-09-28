@@ -73,5 +73,42 @@ class CfgSounds
         sound[] = {"SFX\raptor5.ogg", db+1, 1.0};
         titles[] = {0,""};
     };
-
+	
+	//ALIA NUKE
+	class murmur
+	{
+		name = "murmur"; // Name for mission editor
+		sound[] = {\SFX\murmur.ogg, db+10, 1.0};
+		titles[] = {0, ""};
+	};
+	class nuke
+	{
+		name = "nuke"; // Name for mission editor
+		sound[] = {\SFX\nuke.ogg, db+20, 1.0};
+		titles[] = {0, ""};
+	};	
+	class nuke_2
+	{
+		name = "nuke_2"; // Name for mission editor
+		sound[] = {\SFX\nuke_2.ogg, db+30, 1.0};
+		titles[] = {0, ""};
+	};	
+	class nuke_3
+	{
+		name = "nuke_3"; // Name for mission editor
+		sound[] = {\SFX\nuke_3.ogg, db+25, 1.0};
+		titles[] = {0, ""};
+	};		
+	class wind_strong
+	{
+		name = "wind_strong"; // Name for mission editor
+		sound[] = {\SFX\wind_strong.ogg, 1, 1.0};
+		titles[] = {0, ""};
+	};
+	class geiger
+	{
+		name = "geiger"; // Name for mission editor
+		sound[] = {\SFX\geiger.ogg, .7, 1.0};
+		titles[] = {0, ""};
+	};	
 }; 

@@ -18,9 +18,9 @@ class Params {
 	
 	class TimeMulti2 {
 		title = "Time Multiplier:";
-		values[] = {0,1,10,30,60,120};
-		texts[] = {"0x","1x","10x","30x","60x","120x"};
-		default = 1;
+		values[] = {200,0,1,10,30,60,120};
+		texts[] = {"Adaptive","0x","1x","10x","30x","60x","120x"};
+		default = 0;
 		isGlobal = 1;
 	};
 		
@@ -106,8 +106,8 @@ class Params {
 	
 	class LootMode {
 		title = "Loot Mode:";
-		values[] = {0,2,1};
-		texts[] = {"Disabled","Buildings Only","Anywhere"};
+		values[] = {2,1};
+		texts[] = {"Buildings Only","Anywhere"};
 		default = 1;
 		isGlobal = 1;
 	}
@@ -122,9 +122,9 @@ class Params {
 	
 	class NumCars13 {
         title = "Number of Vehicles:";
-        values[] = {0,5,10,15,20,100};
-        texts[] = {"Disabled","5","10","15","20","Max"};
-        default = 10;
+        values[] = {0,100,5,10,15,20};
+        texts[] = {"Disabled","Auto","5","10","15","20"};
+        default = 100;
 		isGlobal = 1;
     };
 	
@@ -137,7 +137,7 @@ class Params {
 	}
 	
 	class DestEvents15 {
-		title = "Area Denial Events: (Artillery, Chemical Attacks, Earthquakes, Rogue UAV)";
+		title = "Area Denial Events: (Artillery, Chemical Attacks, Earthquakes, Nuke, Rogue UAV)";
 		values[] = {1,0};
 		texts[] = {"Enabled","Disabled"};
 		default = 1;
@@ -172,20 +172,20 @@ class Params {
 		title = "Zombies:";
 		values[] = {1,0};
 		texts[] = {"Enabled","Disabled"};
-		default = 0;
+		default = 1;
 		isGlobal = 1;
 	}
 	
 	class anticamp {
 		title = "AntiCamp: (Reveals player locations if they linger in one area too long)";
 		values[] = {0,30,60,90,120};
-		texts[] = {"Disabled","30 seconds","1 minute","1.5 minutes","2 minutes"};
+		texts[] = {"Disabled","30 seconds","60 seconds","90 seconds","120 seconds"};
 		default = 0;
 		isGlobal = 1;
 	};
 
 	class stats20 {
-		title = "Stat Saving (Auto disabled if Debug or Test Mode enabled)";
+		title = "Stat Saving (Auto disabled if Debug Mode enabled)";
 		values[] = {1,0,2};
 		texts[] = {"Enabled","Disabled","Wipe Stats"};
 		default = 1;
