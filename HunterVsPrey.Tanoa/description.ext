@@ -26,11 +26,15 @@ joinUnassigned = 1;
 enableDebugConsole = 1;
 
 #include "params.hpp"
+#include "CfgMaster.hpp"
 #include "sounds.hpp"
 #include "debriefing.hpp"
-#include "effects\abilities\abilities.hpp"
 #include "GUI\defines.hpp"
 #include "SINadmin\SIN_admin.hpp"
+
+class CfgFunctions {
+    #include "Functions.hpp"
+};
 
 class RscTitles {
 	#include "GUI\HVP_HUD.hpp"
